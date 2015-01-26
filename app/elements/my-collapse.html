@@ -1,0 +1,47 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-collapse/core-collapse.html">
+
+<polymer-element name="my-collapse"  attributes="mytitle">
+  <template>
+    <style>
+      :host {
+        /* Note: by default elements are always display:inline. */
+        display: block;
+      }
+      .heading {
+        padding: 10px 15px;
+        background-color: #f3f3f3;
+        border: 1px solid #dedede;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+      }
+
+      .content {
+        padding: 15px;
+        border: 1px solid #dedede;
+        border-top: none;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+    </style>
+    <div class="heading" onclick="this.shadowRoot.querySelector('.collapse').toggle();">{{mytitle}}</div>
+    <core-collapse class="collapse">
+      <div class="content">
+        <div>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea, id minim maiestatis incorrupte duo. Dolorum verterem ad ius, his et nullam verterem. Eu alia debet usu, an doming tritani est. Vix ad ponderum petentium suavitate, eum eu tempor populo, graece sententiae constituam vim ex. Cu torquatos reprimique neglegentur nec, voluptua periculis has ut, at eos discere deleniti sensibus. Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea, id minim maiestatis incorrupte duo. Dolorum verterem ad ius, his et nullam verterem. Eu alia debet usu, an doming tritani est. Vix ad ponderum petentium suavitate, eum eu tempor populo, graece sententiae constituam vim ex. Cu torquatos reprimique neglegentur nec, voluptua periculis has ut, at eos discere deleniti sensibus.</div>
+      </div>
+    </core-collapse>
+  </template>
+  <script>
+    Polymer('my-collapse', {
+      ready: function() {
+        var collapse = this.shadowRoot.querySelector('.collapse');
+        this.shadowRoot.querySelector('.heading').addEventListener("click", function(){
+          collapse.toggle();
+        });
+      }
+    });
+  </script>
+</polymer-element>
